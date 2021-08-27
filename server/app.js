@@ -16,7 +16,7 @@ app.use(routesPost)
 app.use(morgan(process.env.LOG_LEVEL))
 
 
-if(process.env.NODE_ENV === 'production'){
+if("mongodb+srv://Ovsyan:ov240988ov@cluster0.vymbk.mongodb.net/mevn_movie" === 'production'){
     app.use(express.static(__dirname + '/dist/'))
 
 
@@ -34,7 +34,7 @@ mongoose.connect(process.env.URL_DB, {
 }, (error) => {
     if (!error) {
         console.log("DB connect")
-        app.listen(PORT, (error) => {
+        app.listen(3001, (error) => {
             if (!error) {
                 console.log(`SERVER  connect  http://localhost:${PORT}`)
             } else {
