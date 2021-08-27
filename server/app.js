@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
-const morgan = require('morgan')
+// const morgan = require('morgan')
 const PORT = process.env.PORT || 3001
 const routesPost = require('./routes/post')
 
@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(routesPost)
-app.use(morgan(process.env.LOG_LEVEL))
+// app.use(morgan(process.env.LOG_LEVEL))
 
 
 if(process.env.NODE_ENV === 'production'){
@@ -34,9 +34,9 @@ mongoose.connect("mongodb+srv://Ovsyan:ov240988ov@cluster0.vymbk.mongodb.net/mev
 }, (error) => {
     if (!error) {
         console.log("DB connect")
-        app.listen(process.env.PORT, (error) => {
+        app.listen(PORT, (error) => {
             if (!error) {
-                console.log("SERVER  connect  http://localhost:3001")
+                console.log("SERVER  connect"  )
             } else {
                 console.log(error)
             }
