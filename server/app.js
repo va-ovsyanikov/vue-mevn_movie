@@ -29,9 +29,10 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 mongoose.connect("mongodb+srv://Ovsyan:ov240988ov@cluster0.vymbk.mongodb.net/mevn_movie", {
-    useNewUrlParser: true,
+  useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false 
+    useCreateIndex: true,
+    useFindAndModify: false, 
 }, (error) => {
     if (!error) {
         console.log("DB connect")
