@@ -16,7 +16,7 @@ app.use(routesPost)
 app.use(morgan(process.env.LOG_LEVEL))
 
 
-if("mongodb+srv://Ovsyan:ov240988ov@cluster0.vymbk.mongodb.net/mevn_movie" === 'production'){
+if(process.env.NODE_ENV === 'production'){
     app.use(express.static(__dirname + '/dist/'))
 
 
@@ -27,7 +27,7 @@ if("mongodb+srv://Ovsyan:ov240988ov@cluster0.vymbk.mongodb.net/mevn_movie" === '
 
 }
 
-mongoose.connect(process.env.URL_DB, {
+mongoose.connect("mongodb+srv://Ovsyan:ov240988ov@cluster0.vymbk.mongodb.net/mevn_movie", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false 
