@@ -34,9 +34,9 @@ mongoose.connect("mongodb+srv://Ovsyan:ov240988ov@cluster0.vymbk.mongodb.net/mev
 }, (error) => {
     if (!error) {
         console.log("DB connect")
-        app.listen(3001, (error) => {
+        app.listen(process.env.PORT, (error) => {
             if (!error) {
-                console.log(`SERVER  connect  http://localhost:3001`)
+                console.log("SERVER  connect  http://localhost:3001")
             } else {
                 console.log(error)
             }
