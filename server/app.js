@@ -17,11 +17,11 @@ app.use(morgan(process.env.LOG_LEVEL))
 
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(__dirname + '/client/dist/'))
+    app.use(express.static(__dirname + '/dist'))
 
 
     app.get('*', function (_, res) {
-        const index = path.join(__dirname, '/client/dist', 'index.html');
+        const index = path.join(__dirname, '/dist/', 'index.html');
         res.sendFile(index);
       });
 
