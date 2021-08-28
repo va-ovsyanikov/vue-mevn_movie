@@ -9,15 +9,6 @@ const routesPost = require('./routes/post')
 const path = require("path")
 
 
-
-app.use("/client/public/",express.static("/public"))
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(cors())
-app.use(routesPost)
-// app.use(morgan(process.env.LOG_LEVEL))
-
-
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static(__dirname + '/dist/'))
 
@@ -27,6 +18,15 @@ if(process.env.NODE_ENV === 'production'){
         res.sendFile(index);
       });
 }
+
+app.use("/client/public/",express.static("/public"))
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(cors())
+app.use(routesPost)
+// app.use(morgan(process.env.LOG_LEVEL))
+
+
 
 
 
