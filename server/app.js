@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 // const morgan = require('morgan')
 const PORT = process.env.PORT || 3001
 const routesPost = require('./routes/post')
-// const path = require("path")
+const path = require("path")
 
 
 if(process.env.NODE_ENV === 'production'){
