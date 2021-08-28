@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
-const morgan = require('morgan')
+// const morgan = require('morgan')
 const PORT = process.env.PORT || 3001
 const routesPost = require('./routes/post')
 const path = require("path")
@@ -23,7 +23,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(routesPost)
-app.use(morgan(process.env.LOG_LEVEL))
+// app.use(morgan(process.env.LOG_LEVEL))
 
 
 
