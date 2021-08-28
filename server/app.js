@@ -10,7 +10,7 @@ const path = require("path")
 
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(__dirname + '/dist/'))
+    app.use("*",express.static(__dirname + '/dist/'))
 
 
     app.get('/', function (_, res) {
