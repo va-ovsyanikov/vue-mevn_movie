@@ -6,17 +6,17 @@ const mongoose = require('mongoose')
 // const morgan = require('morgan')
 const PORT = process.env.PORT || 3001
 const routesPost = require('./routes/post')
-const path = require("path")
+// const path = require("path")
 
 
 if(process.env.NODE_ENV === 'production'){
-    app.use("*",express.static(__dirname + '/dist/'))
+    app.use("*",express.static(__dirname + 'dist' + "index.html"))
 
 
-    app.get('/', function (_, res) {
-        const index = path.join(__dirname, 'dist', 'index.html');
-        res.sendFile(index);
-      });
+    // app.get('/', function (_, res) {
+    //     const index = path.join(__dirname, 'dist', 'index.html');
+    //     res.sendFile(index);
+    //   });
 }
 
 app.use("/client/public/",express.static("/public"))
