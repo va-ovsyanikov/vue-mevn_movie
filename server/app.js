@@ -8,8 +8,7 @@ const PORT = process.env.PORT || 3001
 const routesPost = require('./routes/post')
 const path = require("path")
 
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(__dirname + '/dist/'))
+
 
 
     app.get('*', function (_, res) {
@@ -17,7 +16,6 @@ if(process.env.NODE_ENV === 'production'){
         res.sendFile(index);
       });
 
-}
 app.use("/client/public/",express.static("/public"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
