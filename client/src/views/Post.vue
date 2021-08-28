@@ -1,5 +1,6 @@
 <template>
-  <v-container mt-10 mb-10>
+  <v-container mt-2 mb-10>
+    <BtnPrev />
     <Modal v-if="noticeDelete" @alertHide="alertHide">{{ noticeDelete }}</Modal>
     <v-row>
       <v-card class="mx-auto">
@@ -24,7 +25,7 @@
         <div v-html="`${post.preview}`"></div>
         <v-divider></v-divider>
         <v-card-actions class="mb-3 mt-3">
-          <v-btn color="primary" @click="editPost"> Редактирование </v-btn>
+          <v-btn color="success" @click="editPost"> Редактирование </v-btn>
           <v-btn color="error" @click="deletePost"> Удаление </v-btn>
         </v-card-actions>
       </v-card>
@@ -33,12 +34,14 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapMutations} from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 import Modal from "../components/Modal.vue";
+import BtnPrev from "../components/BtnPrev.vue";
 export default {
   name: "Post",
   components: {
     Modal,
+    BtnPrev,
   },
   data() {
     return {};
@@ -48,7 +51,6 @@ export default {
       post: "GET_POST",
       noticeDelete: "NOTICE_DELETE",
     }),
-    
   },
   methods: {
     ...mapActions(["FETCH_POST", "DELETE_POST"]),

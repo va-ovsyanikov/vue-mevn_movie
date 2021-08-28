@@ -1,5 +1,6 @@
 <template>
   <v-container mt-6>
+    <BtnPrev />
     <h3>Редактирование</h3>
     <Modal v-if="notice" @alertHide="alertHide">{{ notice }}</Modal>
     <v-form
@@ -88,11 +89,12 @@
 <script>
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import Modal from "../components/Modal.vue";
-
+import BtnPrev from "../components/BtnPrev.vue";
 export default {
   name: "AddPost",
   components: {
     Modal,
+    BtnPrev
   },
   data: () => ({
     alert_show: "",
