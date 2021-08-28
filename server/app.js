@@ -16,15 +16,15 @@ app.use(routesPost)
 // app.use(morgan(process.env.LOG_LEVEL))
 
 
-if(process.env.NODE_ENV === 'production'){
+// if(process.env.NODE_ENV === 'production'){
     app.use(express.static(__dirname + '/dist/'))
 
 
-    app.get('*', function (_, res) {
-        const index = path.join(__dirname, 'dist', 'index.html');
-        res.sendFile(index);
-      });
-}
+    // app.get('*', function (_, res) {
+    //     const index = path.join(__dirname, 'dist', 'index.html');
+    //     res.sendFile(index);
+    //   });
+// }
 
 
 mongoose.connect("mongodb+srv://Ovsyan:ov240988ov@cluster0.vymbk.mongodb.net/mevn_movie", {
