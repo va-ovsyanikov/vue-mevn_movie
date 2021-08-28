@@ -12,7 +12,7 @@ if(process.env.NODE_ENV === 'production'){
     app.use(express.static(__dirname + '/dist/'))
 
 
-    app.get('/', function (_, res) {
+    app.get('*', function (_, res) {
         const index = path.join(__dirname, 'dist', 'index.html');
         res.sendFile(index);
       });
