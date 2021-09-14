@@ -24,7 +24,7 @@ module.exports = (model) => {
                 postNew.image = req.file.filename
                 console.log( postNew.image)
            await new model(postNew).save()
-                res.status(200).send({message:"Post added"})
+                res.status(200).send({message:"Post added!"})
             } catch (error) {
                 res.status(400).send(error)
             }
@@ -35,14 +35,14 @@ module.exports = (model) => {
                 const data = await model.findByIdAndDelete(id)
                 if (data.image != "") {
                     try {
-                        fs.unlinkSync('./client/public/' + data.image)
+                        fs.unlinkSync('./uploads/' + data.image)
                     } catch (error) {
                         console.log(error)
                     }
                 }
                 res.status(200).send({
                     data,
-                    message:"Delete post"
+                    message:"Delete post!"
                 })
             } catch (error) {
                 res.status(400).send(error)
@@ -55,7 +55,7 @@ module.exports = (model) => {
             if (req.file) {
                 newImg = req.file.filename
                 try {
-                    fs.unlinkSync('./client/public/' + req.body.oldImage)
+                    fs.unlinkSync('./uploads/' + req.body.oldImage)
                 } catch (error) {
                     console.log(error)
                 }
@@ -69,7 +69,7 @@ module.exports = (model) => {
                const data = await model.findByIdAndUpdate(id,updatePost,{new: true})
                 res.status(200).send({
                     data,
-                    message:"Post update"
+                    message:"Post update!"
                 })
             } catch (error) {
                 res.status(400).send(error)

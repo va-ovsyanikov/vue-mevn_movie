@@ -74,7 +74,7 @@
       <v-img
         max-height="150"
         max-width="250"
-        :src="`/${postEdit.image}`"
+        :src="`.././image/${postEdit.image}`"
       ></v-img>
       <div class="btn_group">
         <v-btn :disabled="!valid" color="success" class="mr-4" type="submit"

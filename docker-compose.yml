@@ -1,0 +1,63 @@
+version: "3.8"
+services: 
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    volumes: 
+      - mongo-data:/data/db 
+    env_file: 
+      - ./config/development.env  
+    ports: 
+      - 27017:27017  
+    networks: 
+      - notes-net
+
+
+
+  frontend:
+    image: client_dev
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: client
+    volumes: 
+      - ./client/src:/app/src
+      - ./server/uploads:/app/public/image
+    ports: 
+      - 3002:3002
+    environment: 
+      - CHOKIDAR_USEPOLLING=true     
+    networks: 
+      - notes-net
+      
+
+
+
+  backend:
+    image: backend_dev
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: server
+    volumes: 
+      - ./server:/app  
+      - /app/node_modules
+      - ./server/uploads:/app/uploads
+    depends_on: 
+      - mongodb 
+    env_file: 
+      - ./config/development.env  
+    ports: 
+      - 3001:3001 
+    environment: 
+      - CHOKIDAR_USEPOLLING=true      
+    networks: 
+      - notes-net
+
+
+
+volumes: 
+  mongo-data:
+networks: 
+  notes-net:

@@ -2,10 +2,9 @@ const router = require('express').Router()
 const multer = require("multer");
 const { post } = require('../controllers')
 
-
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "./client/public/");
+        cb(null, "./uploads");
     },
     filename: (req, file, cb) => {
         cb(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
@@ -23,7 +22,7 @@ const fileFilter = (req, file, cb) => {
 const upload = multer(
     {
         storage,
-        // fileFilter
+        fileFilter
     }
 ).single("image")
 

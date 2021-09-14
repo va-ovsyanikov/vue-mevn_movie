@@ -1,0 +1,47 @@
+
+version: "3.8"
+services: 
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    volumes: 
+      - mongo-prod:/data/db 
+    env_file: 
+      - ./config/production.env
+    ports: 
+      - 27017:27017  
+
+
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.prod
+    container_name: client
+    ports: 
+      - 80:80   
+    env_file: 
+      - ./config/production.env
+    volumes: 
+      - ./server/uploads:/usr/share/nginx/html/image
+
+
+  backend:
+    build: 
+      context: ./server
+      dockerfile: Dockerfile.prod
+    container_name: server
+    depends_on: 
+      - mongodb 
+    env_file: 
+      - ./config/production.env  
+    ports: 
+      - 3001:3001 
+    volumes: 
+      - ./server/uploads:/app/uploads  
+
+
+
+volumes: 
+  mongo-prod:

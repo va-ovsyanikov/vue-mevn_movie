@@ -4,10 +4,10 @@
   "description": "",
   "author": "",
   "scripts": {
-    "start": "node server/app.js",
-    "server": "nodemon server/app.js",
+    "start": "node app.js",
+    "server": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "npm run serve --prefix client",
+    "client": "npm run serve --prefix ../client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "main": "index.js",

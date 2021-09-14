@@ -4,7 +4,7 @@
     <Modal v-if="noticeDelete" @alertHide="alertHide">{{ noticeDelete }}</Modal>
     <v-row>
       <v-card class="mx-auto">
-        <v-img class="white--text align-end" :src="`/${post.image}`">
+        <v-img class="white--text align-end" :src="`.././image/${post.image}`">
           <v-card-title
             ><h3>{{ post.title }}</h3></v-card-title
           >

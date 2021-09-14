@@ -8,7 +8,11 @@
       max-width="350"
       :to="{ name: 'Post', params: { id } }"
     >
-      <v-img class="white--text align-end" height="200px" :src="`/${image}`">
+      <v-img
+        class="white--text align-end"
+        height="200px"
+        :src="`./image/${image}`"
+      >
       </v-img>
       <v-card-title>{{ title }}</v-card-title>
       <v-divider></v-divider>
@@ -16,6 +20,8 @@
 
       <v-card-subtitle>Жанр: {{ category }}</v-card-subtitle>
     </v-card>
+
+
   </v-hover>
 </template>
 
