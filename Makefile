@@ -32,7 +32,7 @@ dev:
 
 
 prod:
-	docker-compose -f docker-compose.prod.yml up
+	docker-compose -f docker-compose.prod.yml up -d
 
 
 down:
@@ -41,3 +41,13 @@ down:
 
 rmimage:
 	docker image prune -a
+
+
+# Подключение к серверу SSH
+SSH_DATA:=root@00.000.000.000
+
+ssh:
+	ssh $(SSH_DATA)
+
+copy-files:
+	scp -r ./* $(SSH_DATA):/root/app
