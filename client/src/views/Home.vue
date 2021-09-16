@@ -1,13 +1,10 @@
 <template>
-  <v-app class="pt-7">
+  <v-app class="pt-7 mb-10">
     <v-container>
-      <!-- <Modal v-if="NOTICE_DELETE">{{ NOTICE_DELETE }}</Modal> -->
       <v-row>
         <ItemPost
- 
           v-for="(post, i) in GET_POSTS"
           :key="i"
-       
           :image="post.image"
           :category="post.category"
           :released="post.released"
@@ -22,7 +19,6 @@
 <script>
 import ItemPost from "../components/ItemPost.vue";
 import { mapGetters, mapActions } from "vuex";
-// import Modal from "../components/Modal.vue";
 export default {
   name: "Home",
   components: {
@@ -39,9 +35,6 @@ export default {
   },
   methods: {
     ...mapActions(["FETCH_POSTS"]),
-    // addPostLink(){
-    //   this.$route.push({name:'Post', params: { id: this.post._id }} )
-    // }
   },
   mounted() {
     this.FETCH_POSTS();

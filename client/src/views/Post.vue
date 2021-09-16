@@ -22,7 +22,9 @@
         <v-card-text class="text--primary">
           <div>{{ post.description }}</div>
         </v-card-text>
-        <div v-html="`${post.preview}`"></div>
+
+        <div class="preview" v-html="`${post.preview}`"></div>
+
         <v-divider></v-divider>
         <v-card-actions class="mb-3 mt-3">
           <v-btn color="success" @click="editPost"> Редактирование </v-btn>
@@ -72,5 +74,20 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
+.preview {
+  position: relative;
+  padding: 0 0 56.25% 0;
+  height: 0;
+  overflow: hidden;
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
 </style>
