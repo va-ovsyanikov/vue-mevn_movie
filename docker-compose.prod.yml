@@ -5,12 +5,12 @@ services:
   mongodb:
     image: mongo
     container_name: mongodb
-    volumes: 
-      - mongo-prod:/data/db 
-    env_file: 
-      - ./config/production.env
-    ports: 
-      - 27017:27017  
+    # volumes: 
+    #   - mongo-prod:/data/db 
+    # env_file: 
+    #   - ./config/production.env
+    # ports: 
+    #   - 27017:27017  
 
 
 
@@ -43,5 +43,5 @@ services:
 
 
 
-volumes: 
-  mongo-prod:
+# volumes: 
+#   mongo-prod:

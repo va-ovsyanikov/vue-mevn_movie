@@ -9,7 +9,6 @@
             ><h3>{{ post.title }}</h3></v-card-title
           >
         </v-img>
-
         <v-card-subtitle class="pb-0"
           >Добавлено: {{ post.created }}</v-card-subtitle
         >
@@ -18,13 +17,10 @@
         >
         <v-card-subtitle>Релиз: {{ post.released }}</v-card-subtitle>
         <v-divider></v-divider>
-
         <v-card-text class="text--primary">
           <div>{{ post.description }}</div>
         </v-card-text>
-
         <div class="preview" v-html="`${post.preview}`"></div>
-
         <v-divider></v-divider>
         <v-card-actions class="mb-3 mt-3">
           <v-btn color="success" @click="editPost"> Редактирование </v-btn>
