@@ -1,8 +1,7 @@
 <template>
   <v-container mt-6>
     <BtnPrev />
-    <h3>Редактирование</h3>
-    <Modal v-if="notice" @alertHide="alertHide">{{ notice }}</Modal>
+    <!-- <Modal v-if="notice" @alertHide="alertHide">{{ notice }}</Modal> -->
     <v-form
       ref="form"
       v-model="valid"
@@ -74,7 +73,7 @@
       <v-img
         max-height="150"
         max-width="250"
-        :src="`.././image/${postEdit.image}`"
+        :src="`http://localhost:3001/${postEdit.image}`"
       ></v-img>
       <div class="btn_group">
         <v-btn :disabled="!valid" color="success" class="mr-4" type="submit"
@@ -88,13 +87,11 @@
 
 <script>
 import { mapActions, mapGetters, mapMutations } from "vuex";
-import Modal from "../components/Modal.vue";
 import BtnPrev from "../components/BtnPrev.vue";
 export default {
   name: "AddPost",
   components: {
-    Modal,
-    BtnPrev
+    BtnPrev,
   },
   data: () => ({
     alert_show: "",
@@ -138,16 +135,16 @@ export default {
         id: this.$route.params.id,
         data: formData,
       });
-
+      this.FETCH_POST(this.$route.params.id);
       if (this.$refs.form.validate()) {
         this.$refs.form.reset();
       }
-      
-    },
-    alertHide() {
-      this.NOTICE_HIDE();
       this.$router.push({ name: "Post", params: { id: this.postEdit._id } });
     },
+    // alertHide() {
+    //   this.NOTICE_HIDE();
+    //   this.$router.push({ name: "Post", params: { id: this.postEdit._id } });
+    // },
     reset() {
       this.$refs.form.reset();
     },

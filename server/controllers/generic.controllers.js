@@ -30,9 +30,10 @@ module.exports = (model) => {
             }
         },
 
-        async delete({ params: { id } }, res) {
+        async delete({ params: { _id } }, res) {
             try {
-                const data = await model.findByIdAndDelete(id)
+                console.log(_id); 
+                const data = await model.findByIdAndDelete(_id)
                 if (data.image != "") {
                     try {
                         fs.unlinkSync('./uploads/' + data.image)

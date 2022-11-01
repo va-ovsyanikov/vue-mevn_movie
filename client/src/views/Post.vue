@@ -1,10 +1,13 @@
 <template>
   <v-container mt-2 mb-10>
     <BtnPrev />
-    <Modal v-if="noticeDelete" @alertHide="alertHide">{{ noticeDelete }}</Modal>
+    <!-- <Modal v-if="noticeDelete" @alertHide="alertHide">{{ noticeDelete }}</Modal> -->
     <v-row>
       <v-card class="mx-auto">
-        <v-img class="white--text align-end" :src="`.././image/${post.image}`">
+        <v-img
+          class="white--text align-end"
+          :src="`http://localhost:3001/${post.image}`"
+        >
           <v-card-title
             ><h3>{{ post.title }}</h3></v-card-title
           >
@@ -33,12 +36,12 @@
 
 <script>
 import { mapGetters, mapActions, mapMutations } from "vuex";
-import Modal from "../components/Modal.vue";
+// import Modal from "../components/Modal.vue";
 import BtnPrev from "../components/BtnPrev.vue";
 export default {
   name: "Post",
   components: {
-    Modal,
+    // Modal,
     BtnPrev,
   },
   data() {
@@ -55,9 +58,6 @@ export default {
     ...mapMutations(["NOTICE_HIDE"]),
     deletePost() {
       this.DELETE_POST(this.$route.params.id);
-    },
-    alertHide() {
-      this.NOTICE_HIDE();
       this.$router.push({ name: "Home" });
     },
     editPost() {
@@ -73,7 +73,7 @@ export default {
 <style lang="less">
 .preview {
   position: relative;
-  padding: 0 0 56.25% 0;
+  // padding: 0 0 56.25% 0;
   height: 0;
   overflow: hidden;
   iframe,

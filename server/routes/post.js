@@ -31,7 +31,7 @@ router.get('/', post.getAll)
 router.get('/post/:id', post.getOne)
 router.patch('/edit/:id', upload, post.update)
 router.post('/add-post', upload, post.create)
-router.delete('/post/:id', post.delete)
+router.delete('/post/:_id', post.delete)
 
 
 module.exports = router

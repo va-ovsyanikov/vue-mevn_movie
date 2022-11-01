@@ -1,9 +1,9 @@
 <template>
   <v-container mt-6>
     <h3>Добавить новый фильм</h3>
-    <Modal v-if="NOTICE_CREATE" @alertHide="alertHide">{{
+    <!-- <Modal v-if="NOTICE_CREATE" @alertHide="alertHide">{{
       NOTICE_CREATE
-    }}</Modal>
+    }}</Modal> -->
     <v-form
       ref="form"
       v-model.trim="valid"
@@ -85,15 +85,15 @@
 
 <script>
 import { mapActions, mapGetters, mapMutations } from "vuex";
-import Modal from "../components/Modal.vue";
+// import Modal from "../components/Modal.vue";
 export default {
   name: "AddPost",
   components: {
-    Modal,
+    // Modal,
   },
   data: () => ({
     alert_show: "",
-    valid: true,
+    valid: false,
     file: [],
     post: {
       title: "",
@@ -139,14 +139,17 @@ export default {
       formData.append("description", this.post.description);
       formData.append("image", this.post.image);
       this.CREATE_POST(formData);
-      if (this.$refs.form.validate()) {
+      if (!this.$refs.form.validate()) {
         this.$refs.form.reset();
+      }else{
+         this.$router.push({ name: "Home" });
       }
+     
     },
-    alertHide() {
-      this.NOTICE_HIDE();
-      this.$router.push({ name: "Home" });
-    },
+    // alertHide() {
+    //   this.NOTICE_HIDE();
+      
+    // },
     reset() {
       this.$refs.form.reset();
     },

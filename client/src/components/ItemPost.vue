@@ -11,7 +11,7 @@
       <v-img
         class="white--text align-end"
         height="200px"
-        :src="`./image/${image}`"
+        :src="`http://localhost:3001/${image}`"
       >
       </v-img>
       <v-card-title>{{ title }}</v-card-title>

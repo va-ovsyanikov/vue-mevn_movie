@@ -1,5 +1,5 @@
 import { getPosts, getPost, deletePost, createPost, editPost } from '../../services/post.services'
-
+import Vue from 'vue';
 
 const state = {
     posts: [],
@@ -16,7 +16,7 @@ const mutations = {
         state.post = data
     },
     DELETE_POST(state, post) {
-        if (state.post._id === post.data._id) {
+        if (state.post._id === post._id) {
             state.post = []
         }
     },
@@ -45,7 +45,7 @@ const actions = {
     async FETCH_POSTS({ commit }) {
         try {
             const response = await getPosts()
-            commit("SET_POSTS", response.data)
+            commit("SET_POSTS", response)
         } catch (error) {
             console.log(error)
         }
@@ -53,16 +53,20 @@ const actions = {
     async FETCH_POST({ commit }, id) {
         try {
             const response = await getPost(id)
-            commit("SET_POST", response.data)
+            commit("SET_POST", response)
         } catch (error) {
             console.log(error)
         }
     },
-    async DELETE_POST({ commit }, id) {
+    async DELETE_POST({ commit }, _id) {
         try {
-            const response = await deletePost(id)
+            const response = await deletePost(_id)
             commit("DELETE_POST", response.data)
-            commit("NOTICE_DELETE", response.data.message)
+            // commit("NOTICE_DELETE", response.message)
+            Vue.notify({
+                type: 'error',
+                text: response.message
+              })
         } catch (error) {
             console.log(error)
         }
@@ -70,17 +74,25 @@ const actions = {
     async CREATE_POST({ commit }, data) {
         try {
             const response = await createPost(data)
-            commit("CREATE_POST", response)
-            commit("NOTICE_CREATE", response.data.message)
+            commit("CREATE_POST", response.data)
+            // commit("NOTICE_CREATE", response.message)
+            Vue.notify({
+                type: 'success',
+                text: response.message
+              })
         } catch (error) {
             console.log(error)
         }
     },
-    async EDIT_POST({ commit }, {id, data}) {
+    async EDIT_POST({ commit }, { id, data }) {
         try {
             const response = await editPost(id, data)
             commit("EDIT_POST", response.data)
-            commit("NOTICE_EDIT", response.data.message)
+            // commit("NOTICE_EDIT", response.message)
+            Vue.notify({
+                type: 'success',
+                text: response.message
+              })
         } catch (error) {
             console.log(error)
         }
