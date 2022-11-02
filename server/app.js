@@ -1,7 +1,7 @@
 require("dotenv").config()
 const express = require('express')
 const app = express()
-const cors = require('cors')({origin: true})
+const cors = require('cors')
 const mongoose = require('mongoose')
 // const morgan = require('morgan')
 const path = require("path")
