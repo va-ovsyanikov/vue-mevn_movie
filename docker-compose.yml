@@ -1,3 +1,4 @@
+
 version: "3.8"
 services: 
 
@@ -8,45 +9,36 @@ services:
       - mongo-data:/data/db 
     ports: 
       - 27017:27017 
-    command: mongod  
+    command: mongod   
 
 
 
   frontend:
-    image: client_dev
-    build: 
+    build:
       context: ./client
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     container_name: client
-    volumes: 
-      - ./client/src:/app/src
-      - ./server/uploads:/app/public/image
     ports: 
-      - 3002:3002
-    environment: 
-      - CHOKIDAR_USEPOLLING=true     
-      
-
+      - 80:80   
+    env_file: 
+      - ./config/production.env
+    volumes: 
+      - ./server/uploads:/usr/share/nginx/html/image
 
 
   backend:
-    image: backend_dev
-    build:
+    build: 
       context: ./server
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     container_name: server
-    volumes: 
-      - ./server:/app  
-      - /app/node_modules
-      - ./server/uploads:/app/uploads
     depends_on: 
       - mongodb 
     env_file: 
-      - ./config/development.env  
+      - ./config/production.env  
     ports: 
       - 3001:3001 
-    environment: 
-      - CHOKIDAR_USEPOLLING=true      
+    volumes: 
+      - ./server/uploads:/app/uploads  
 
 
 

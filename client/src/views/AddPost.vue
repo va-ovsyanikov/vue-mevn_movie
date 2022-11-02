@@ -138,11 +138,9 @@ export default {
       formData.append("preview", this.post.preview);
       formData.append("description", this.post.description);
       formData.append("image", this.post.image);
-      this.CREATE_POST(formData);
+      this.CREATE_POST(formData).then(()=>this.$router.push({ name: "Home" }))
       if (!this.$refs.form.validate()) {
         this.$refs.form.reset();
-      }else{
-         this.$router.push({ name: "Home" });
       }
      
     },

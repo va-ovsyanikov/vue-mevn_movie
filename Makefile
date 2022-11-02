@@ -28,11 +28,11 @@ client:
 
 
 dev:
-	docker-compose -f docker-compose.yml up 
+	docker-compose -f docker-compose.dev.yml up 
 
 
 prod:
-	docker-compose -f docker-compose.prod.yml up -d
+	docker-compose -f docker-compose.yml up -d
 
 
 down:
