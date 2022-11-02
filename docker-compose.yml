@@ -16,8 +16,7 @@ services:
   frontend:
     build:
       context: ./client
-      # dockerfile: Dockerfile.prod
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     container_name: client
     ports: 
       - 80:80   
