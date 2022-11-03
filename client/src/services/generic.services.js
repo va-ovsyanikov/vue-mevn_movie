@@ -5,7 +5,7 @@ import axios from "axios"
 //      ? 'http://k36366.fps.by/'
 //      : 'http://localhost:3001'
 
-const baseURL = 'http://k36366.fps.by/'
+const baseURL = 'http://k36366.fps.by'
 const axiosInstanse = axios.create({
      baseURL,
      proxyHeaders: false,
