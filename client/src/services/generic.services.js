@@ -1,14 +1,17 @@
 import axios from "axios"
-console.log(process.env.API_URL);
+
 
 const baseURL = process.env.NODE_ENV === "production"
      ? 'http://k36366.fps.by'
      : 'http://localhost:3001'
 
+
+
 const axiosInstanse = axios.create({
      baseURL,
      proxyHeaders: false,
-     credentials: false
+     credentials: false,
+     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
 });
 
 const API_URL = axiosInstanse.defaults.baseURL

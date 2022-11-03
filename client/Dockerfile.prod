@@ -8,9 +8,6 @@ RUN npm install
 
 COPY .   .
 
-ENV PORT_VUE 3002
-
-
 RUN npm run build
 
 FROM nginx:alpine
