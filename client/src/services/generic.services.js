@@ -1,11 +1,11 @@
 import axios from "axios"
 
 
-// const baseURL = process.env.NODE_ENV === "production"
-//      ? 'http://5.101.51.73:3001'
-//      : 'http://localhost:3001'
+const baseURL = process.env.NODE_ENV === "production"
+     ? 'http://k36366.fps.by/'
+     : 'http://localhost:3001'
 
-const baseURL = 'http://localhost:3001'
+
 const axiosInstanse = axios.create({
      baseURL,
      proxyHeaders: false,
