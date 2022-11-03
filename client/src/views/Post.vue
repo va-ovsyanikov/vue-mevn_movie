@@ -4,14 +4,14 @@
     <!-- <Modal v-if="noticeDelete" @alertHide="alertHide">{{ noticeDelete }}</Modal> -->
     <v-row>
       <v-card class="mx-auto">
-        <v-img
+        <!-- <v-img
           class="white--text align-end"
           :src="`http://localhost:3001/${post.image}`"
         >
           <v-card-title
             ><h3>{{ post.title }}</h3></v-card-title
           >
-        </v-img>
+        </v-img> -->
         <v-card-subtitle class="pb-0"
           >Добавлено: {{ post.created }}</v-card-subtitle
         >

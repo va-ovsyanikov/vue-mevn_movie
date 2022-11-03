@@ -8,12 +8,12 @@
       max-width="350"
       :to="{ name: 'Post', params: { id } }"
     >
-      <v-img
+      <!-- <v-img
         class="white--text align-end"
         height="200px"
         :src="`http://localhost:3001/${image}`"
       >
-      </v-img>
+      </v-img> -->
       <v-card-title>{{ title }}</v-card-title>
       <v-divider></v-divider>
       <v-card-subtitle class="pb-0 mt-0">Релиз: {{ released }}</v-card-subtitle>

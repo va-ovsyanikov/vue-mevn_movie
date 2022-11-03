@@ -70,11 +70,11 @@
         name="uploadImage"
         @change="selectFile"
       ></v-file-input>
-      <v-img
+      <!-- <v-img
         max-height="150"
         max-width="250"
         :src="`http://localhost:3001/${postEdit.image}`"
-      ></v-img>
+      ></v-img> -->
       <div class="btn_group">
         <v-btn :disabled="!valid" color="success" class="mr-4" type="submit"
           >Изменить</v-btn
