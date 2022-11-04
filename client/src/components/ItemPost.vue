@@ -7,8 +7,9 @@
       class="mx-auto"
       max-width="350"
       :to="{ name: 'Post', params: { id } }"
+      
     >
-      <!-- <v-img
+      <!-- <v-img 
         class="white--text align-end"
         height="200px"
         :src="`http://localhost:3001/${image}`"

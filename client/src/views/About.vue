@@ -4,7 +4,7 @@
       <v-row>
         <div class="about">
           <h2>MEVN</h2>
-          <h3>Node.js Mongodb Express.js Vue.js Vuex Vuetify Axios Docker Nginx RESTAPI Vscale</h3>
+          <h3>Node.js Mongodb Express.js Vue.js Vuex Vuetify Axios Docker Nginx RESTAPI VPS</h3>
         </div>
       </v-row>
     </v-container>
