@@ -17,12 +17,8 @@ app.use(routesPost)
 // app.use(morgan(process.env.LOG_LEVEL))
 
 
-
-
 // const {MONGO_DB_URL, PORT} = process.env
-
 // mongoose.connect(`mongodb://${MONGO_HOST}:${MONGO_PORT}`, {
-
 
 
 mongoose.connect('mongodb://mongodb:27017/movie', {

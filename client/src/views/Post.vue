@@ -34,6 +34,7 @@
   </v-container>
 </template>
 
+
 <script>
 import { mapGetters, mapActions, mapMutations } from "vuex";
 // import Modal from "../components/Modal.vue";

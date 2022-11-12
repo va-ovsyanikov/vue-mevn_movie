@@ -1,11 +1,10 @@
 import axios from "axios"
 
 
-// const baseURL = process.env.NODE_ENV === "production"
-//      ? 'http://k36366.fps.by'
-//      : 'http://localhost:3001'
+const baseURL = process.env.NODE_ENV === "production"
+     ? 'http://k36366.fps.by'
+     : 'http://localhost:3001'
 
-const baseURL = 'http://k36366.fps.by'
 const axiosInstanse = axios.create({
      baseURL,
      proxyHeaders: false,
@@ -13,10 +12,7 @@ const axiosInstanse = axios.create({
      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
 });
 
-const API_URL = axiosInstanse.defaults.baseURL
-
-
 export const request = async ({ url, data, method }) => {
-     const response = await axios[method](`${API_URL}/${url}`, data)
+     const response = await axiosInstanse[method](`/${url}`, data)
      return response.data
 }

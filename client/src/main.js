@@ -6,6 +6,7 @@ import vuetify from './plugins/vuetify'
 import Notifications from 'vue-notification'
 
 Vue.config.productionTip = false
+
 Vue.use(Notifications)
 new Vue({
   router,
